@@ -19,7 +19,5 @@
     "mongoose": "^5.9.13",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
-  },
-  "devDependencies": {},
-  "description": ""
+  }
 }
