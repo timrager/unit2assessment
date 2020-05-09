@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const Todo = require('./models/todos.js');
-const PORT = 3000;
+const PORT = process.env.port || 3000;
 // const methodOverride = require('method-override');
 
 // middleware
@@ -15,7 +15,8 @@ app.engine('jsx', require('express-react-views').createEngine());
 
 
 // mongoose connection
-mongoose.connect('mongodb://localhost:27017/unit2assessment', { useNewUrlParser: true, useUnifiedTopology: true });
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/unit2assessment';
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.connection.once('open', () => {
     console.log("connected to mongo");
 })
