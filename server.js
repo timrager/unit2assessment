@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const Todo = require('./models/todos.js');
 const db = mongoose.connection;
 const PORT = process.env.port || 3000;
-// const methodOverride = require('method-override');
+const methodOverride = require('method-override');
 
 // middleware
 app.use(express.static('public'));
@@ -14,7 +14,7 @@ app.set('view engine', 'jsx');
 app.use(express.json());
 app.engine('jsx', require('express-react-views').createEngine());
 app.use(express.json());
-// app.use(methodOverride('_method'));
+app.use(methodOverride('_method'));
 
 
 // mongoose connection
