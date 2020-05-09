@@ -13,6 +13,7 @@ app.use(express.urlencoded({ extended: false }));
 app.set('view engine', 'jsx');
 app.use(express.json());
 app.engine('jsx', require('express-react-views').createEngine());
+app.use(express.json());
 // app.use(methodOverride('_method'));
 
 
@@ -46,7 +47,6 @@ app.post('/', (req, res) => {
 })
 
   // LISTENER
-app.listen(PORT, () => {
-    console.log('LIstening on port: ', PORT);
-  })
-  
+  app.listen(PORT, () => {
+    console.log('Express listening...');
+});
