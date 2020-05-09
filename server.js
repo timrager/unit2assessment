@@ -28,14 +28,14 @@ db.on('disconnected', () => console.log('mongo disconnected'));
 db.on('open' , ()=>{});
 
 // index route
-app.get('/', (req, res) => {
+app.get('/assessment', (req, res) => {
     Todo.find( {}, (err, allTodos) => {
     res.render('Index', { todos: allTodos } )
     });
 });
 
 // create route
-app.post('/', (req, res) => {
+app.post('/assessment', (req, res) => {
     if (req.body.done === "on") {
         req.body.done = true;
     } else {
